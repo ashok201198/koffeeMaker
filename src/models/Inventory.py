@@ -29,7 +29,7 @@ class Inventory:
     def canPrepareDrink(self, drink: Drink):
         if drink.ingredients is None or len(drink.ingredients) == 0:
             raise NoIngredientsFoundException(drink)
-        print(self.materials)
+        # print(self.materials)
         for ingredient, quantity in drink.ingredients.items():
             if self.materials.get(ingredient, 0) == 0:
                 raise UnavailableIngredientException(drink, ingredient)

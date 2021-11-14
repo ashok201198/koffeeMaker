@@ -8,10 +8,9 @@ class CafeMachine:
     Takes a drink object as an input and forwards it to inventory
     """
 
-    def __init__(self, outlets, inventoryDetails, drinks):
+    def __init__(self, outlets, inventoryDetails):
         self.outlets = outlets
         self.inventoryDetails = inventoryDetails
-        self.drinks = drinks
         self.inventory = None
 
     def setupInventory(self):
