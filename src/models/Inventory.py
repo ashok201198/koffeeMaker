@@ -11,7 +11,7 @@ class Inventory:
     """
 
     def __new__(cls, *args, **kwargs):
-        if not hasattr(cls, 'instance'):
+        if not hasattr(cls, 'instance') or cls.instance is None:
             cls.instance = super(Inventory, cls).__new__(cls)
         return cls.instance
 
@@ -61,5 +61,5 @@ class Inventory:
     """
 
     def reset(self):
-        self.__setattr__('instance', None)
+        self.__delattr__('instance')
         self.materials = None

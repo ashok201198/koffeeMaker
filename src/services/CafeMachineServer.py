@@ -13,7 +13,7 @@ class CafeMachineServer:
     """
 
     def __new__(cls, *args, **kwargs):
-        if not hasattr(cls, 'instance'):
+        if not hasattr(cls, 'instance') or cls.instance is None:
             cls.instance = super(CafeMachineServer, cls).__new__(cls)
         return cls.instance
 
@@ -38,7 +38,7 @@ class CafeMachineServer:
     def reset(self):
         self.executor.shutdown(wait=False)
         self.cafe.reset()
-        self.__setattr__('instance', None)
+        self.__delattr__('instance')
 
     # @staticmethod
     # def getInstance(instructionsJson=None):
